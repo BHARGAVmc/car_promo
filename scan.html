@@ -6,23 +6,28 @@
 </head>
 <body>
   <script>
-    
-    let count = localStorage.getItem('scanCount');
-    count = count ? parseInt(count) + 1 : 1;
+  let count = localStorage.getItem('scanCount');
+  count = count ? parseInt(count) + 1 : 1;
 
-    
-    localStorage.setItem('scanCount', count);
+  // Cap the count if it goes above 4
+  if (count > 4) {
+    count = 1;
+  }
 
-   
-    if (count === 1) {
-      window.location.href = "main.html";
-    } else if (count === 2) {
-      window.location.href = "m1.html";
-    } else if (count === 3) {
-      window.location.href = "m2.html";
-    } else {
-      window.location.href = "thanks.html"; 
-    }
-  </script>
+  localStorage.setItem('scanCount', count);
+
+  console.log("Scan count = " + count);
+
+  if (count === 1) {
+    window.location.href = "main.html";
+  } else if (count === 2) {
+    window.location.href = "m1.html";
+  } else if (count === 3) {
+    window.location.href = "m2.html";
+  } else {
+    window.location.href = "thanks.html";
+  }
+</script>
+
 </body>
 </html>
