@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <script>
+    // Get current scan count from localStorage
+    let count = localStorage.getItem('scanCount');
+    count = count ? parseInt(count) + 1 : 1;
+
+    // Save updated count
+    localStorage.setItem('scanCount', count);
+
+    // Redirect based on scan count
+    if (count === 1) {
+      window.location.href = "main.html";
+    } else if (count === 2) {
+      window.location.href = "m1.html";
+    } else if (count === 3) {
+      window.location.href = "m2.html";
+    } else {
+      window.location.href = "thanks.html"; // End or reset
+    }
+  </script>
+</body>
+</html>
